@@ -11,10 +11,10 @@ pub fn sigmoid<F: Into<f64>>(x: F) -> f64 {
     // there are two ways to implement this
 
     // the way it is normally expressed
-    //1.0 / (1.0 + E.powf(-x_into))
+    1.0 / (1.0 + E.powf(-x_into))
 
     // another way to write it without negative number
-    (E.powf(x_into.clone())) / (E.powf(x_into) + 1.0)
+    //(E.powf(x_into.clone())) / (E.powf(x_into) + 1.0)
 }
 
 /// A Neuron stores it's activation number
@@ -24,7 +24,6 @@ pub struct Neuron {
 }
 
 impl Neuron {
-
     /// Creates a new neuron from a value
     pub fn new(x: f64) -> Self {
         Self {
@@ -38,7 +37,6 @@ impl Neuron {
             activation: sigmoid(x)
         }
     }
-
 }
 
 #[derive(Clone, Debug)]

@@ -1,7 +1,7 @@
-use crate::newt::sigmoid;
+use crate::neutron::sigmoid;
 
-mod newt;
+mod neutron;
 
 fn main() {
-    println!("-6: {} 6: {} 0: {} 1: {}", sigmoid(-6.0), sigmoid(6.0), sigmoid(0.0), sigmoid(1.0));
+
 }
