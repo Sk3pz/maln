@@ -4,8 +4,17 @@
 /// closer to one for the higher it is.
 /// Returns a number between 0 and 1.
 /// The returned value will be NAN (Not a Number) if the input is too high or low.
-pub fn sigmoid(x: f64) -> f64 {
-    (std::f64::consts::E.powf(x.clone())) / (std::f64::consts::E.powf(x) + 1.0)
+pub fn sigmoid<F: Into<f64>>(x: F) -> f64 {
+    use std::f64::consts::E;
+    let x_into = x.into();
+
+    // there are two ways to implement this
+
+    // the way it is normally expressed
+    //1.0 / (1.0 + E.powf(-x_into))
+
+    // another way to write it without negative number
+    (E.powf(x_into.clone())) / (E.powf(x_into) + 1.0)
 }
 
 /// A Neuron stores it's activation number
